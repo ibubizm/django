@@ -1,0 +1,9 @@
+{% extends 'blog/index.html' %}
+
+
+{% block content %}
+{{post.title}}
+<p>{{post.text}}</p>
+<a href="{% url 'main_url'%}">main</a>
+
+{%endblock%}
