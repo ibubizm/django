@@ -12,7 +12,7 @@ class Post(models.Model):
     published_date = models.DateTimeField(blank=True, null=True, auto_now_add=True)
 
     def get_absolute_url(self):
-        return reverse('post_detail_url', kwargs={'pk': self.pk})
+        return reverse('post_detail_url', kwargs={'pip': self.pk})
 
     def publish(self):
         self.published_date = timezone.now()

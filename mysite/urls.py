@@ -19,6 +19,8 @@ from blog.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('main/', all_posts, name='main_url'),
-    path('post/<int:pk>/', post_detail, name='post_detail_url')
+    path('', views.BlogList.as_view()),
+    path('main/', main_page, name='main_url'),
+    path('post/<int:pip>/', post_detail, name='post_detail_url'),
+    path('posts_list/', posts_list, name='posts_list_url')
 ]
