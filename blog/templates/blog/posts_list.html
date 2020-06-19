@@ -1,6 +1,9 @@
 {% extends 'index.html' %}
+{% block title %}
+    posts
+{% endblock %}
 {% block content %}
-{% for post in posts %}
+{% for post in object_list %}
 <div class="card text-center">
     <div class="card-header">
         {{ post.title }}
@@ -15,4 +18,5 @@
     </div>
 </div>
 {% endfor %}
-{% endblock%}
+
+{% endblock %}
