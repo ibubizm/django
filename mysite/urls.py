@@ -25,5 +25,7 @@ urlpatterns = [
     path('home/', home_page, name='home_url'),
     path('main/', main_page, name='main_url'),
     path('post/<int:pip>/', PostDetail.as_view(), name='post_detail_url'),
-    # path('posts_list/', posts_list, name='posts_list_url')
+    path('post/<int:pip>/update/', PostUpdate.as_view(), name='post_update_url'),
+    path('post/<int:pip>/delete/', PostDelete.as_view(), name='post_delete_url')
+
 ]

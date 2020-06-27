@@ -10,7 +10,9 @@
     <div class="card-body">
         <h5 class="card-title"></h5>
         <p class="card-text">{{ post.text }}</p>
-        <a href="{{ post.get_absolute_url }}" class="btn btn-primary">Read</a>
+        <!--<a href="{{ post.get_absolute_url }}" class="btn btn-primary">Read</a>-->
+        <a href="{{ post.get_update_url }}" class="btn btn-primary">Update Post</a>
+        <a href="{{ post.get_delete_url }}" class="btn btn-danger">Delete Post</a>
     </div>
     <div class="card-footer text-muted">
         {{ post.published_date }}

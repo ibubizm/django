@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post
 from django.views.generic import View, ListView
-from .utils import ObjectDetailMixin , ObjectCreateMixin
+from .utils import *
 from .forms import PostForm
 
 
@@ -12,6 +12,12 @@ class PostDetail(ObjectDetailMixin, View):
     #     # post = Post.objects.get(pk=pip)
     #     post = get_object_or_404(Post, pk=pip)
     #     return render(request, 'blog/post_detail.html', context={'post': post})
+
+
+class PostUpdate(ObjectUpdateMixin, View):
+    model = Post
+    form_model = PostForm
+    template = 'blog/post_update.html'
 
 
 class PostCreate(ObjectCreateMixin, View):
@@ -28,6 +34,11 @@ class PostCreate(ObjectCreateMixin, View):
     #         return redirect(new_post)
     #     return render(request, 'blog/post_create.html', context={'form': bound_form})
 
+
+class PostDelete(ObjectDeleteMixin, View):
+    model_form = PostForm
+    template = 'blog/post_delete.html'
+    model = Post
 
 class PostListView(ListView):
     template_name = 'blog/posts_list.html'

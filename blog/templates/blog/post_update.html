@@ -1,4 +1,23 @@
 {% extends 'index.html' %}
 {% block title %}
-    update post
+Update post {{ post.title }}
+{% endblock %}
+
+{% block content %}
+<form action="{% url 'post_update_url' post.pk %}" method="post">
+    {% csrf_token %}
+    {% for field in form %}
+
+    <div class="form-group row">
+        {% if field.errors %}
+        <div class="alert alert-danger">
+            {{ field.errors }}
+        </div>
+        {% endif %}
+        {{ field.label }}
+        {{ field }}
+    </div>
+    {% endfor %}
+    <button type="submit" name="button" class="btn btn-primary">Update Post</button>
+</form>
 {% endblock %}
